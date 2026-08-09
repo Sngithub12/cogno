@@ -1,0 +1,82 @@
+{
+  "platform": "CognoDB",
+  "graph_name": "cogno_benchmark",
+  "dataset": {
+    "nodes": 169924,
+    "relationships": 100000
+  },
+  "read_benchmark": {
+    "iterations": 100,
+    "warmup": 10,
+    "results": [
+      {
+        "workload": "1-hop",
+        "p50_ms": 320.585,
+        "p95_ms": 469.517,
+        "min_ms": 301.508,
+        "max_ms": 891.364,
+        "mean_ms": 345.931
+      },
+      {
+        "workload": "2-hop",
+        "p50_ms": 325.353,
+        "p95_ms": 959.013,
+        "min_ms": 297.159,
+        "max_ms": 1257.094,
+        "mean_ms": 406.237
+      },
+      {
+        "workload": "3-hop",
+        "p50_ms": 324.283,
+        "p95_ms": 936.691,
+        "min_ms": 293.343,
+        "max_ms": 1921.252,
+        "mean_ms": 423.845
+      },
+      {
+        "workload": "point_lookup",
+        "p50_ms": 326.182,
+        "p95_ms": 939.782,
+        "min_ms": 298.151,
+        "max_ms": 2063.245,
+        "mean_ms": 422.622
+      },
+      {
+        "workload": "filtered_lookup",
+        "p50_ms": 320.873,
+        "p95_ms": 542.162,
+        "min_ms": 301.388,
+        "max_ms": 1226.771,
+        "mean_ms": 374.837
+      },
+      {
+        "workload": "aggregation",
+        "p50_ms": 315.208,
+        "p95_ms": 391.251,
+        "min_ms": 296.795,
+        "max_ms": 485.88,
+        "mean_ms": 326.342
+      }
+    ]
+  },
+  "mixed_workload": {
+    "clients": 10,
+    "operations_per_client": 50,
+    "total_operations": 500,
+    "reads": 404,
+    "writes": 96,
+    "read_write_ratio_target": 0.8,
+    "elapsed_seconds": 29.566,
+    "throughput_ops_per_sec": 16.911,
+    "p50_latency_ms": 309.319,
+    "p95_latency_ms": 1077.459,
+    "min_latency_ms": 278.274,
+    "max_latency_ms": 3164.098,
+    "mean_latency_ms": 488.349
+  },
+  "caveats": [
+    "Mixed workload creates temporary BenchmarkNode records and deletes them in the same transaction.",
+    "Read benchmark uses 100 measurement iterations after 10 warm-up iterations.",
+    "Mixed benchmark uses 10 concurrent clients with 50 operations per client and an 80/20 read/write target."
+  ]
+}

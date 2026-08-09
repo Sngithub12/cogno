@@ -1,0 +1,38 @@
+{
+  "platform": "Neo4j AuraDB",
+  "dataset": {
+    "nodes": 169924,
+    "relationships": 100000
+  },
+  "configuration": {
+    "batch_size": 5000,
+    "load_method": "Python Neo4j driver with UNWIND batching",
+    "node_batches": 34,
+    "relationship_batches": 20
+  },
+  "timing": {
+    "csv_read_seconds": 0.082,
+    "delete_seconds": 5.183,
+    "index_operation_seconds": 0.29,
+    "node_load_seconds": 8.253,
+    "relationship_load_seconds": 13.085,
+    "verification_seconds": 0.21,
+    "data_ingestion_seconds": 21.338,
+    "total_wall_clock_seconds": 30.102
+  },
+  "throughput": {
+    "nodes_per_second": 20589.82,
+    "relationships_per_second": 7642.5,
+    "overall_records_per_second": 12650.2
+  },
+  "index": {
+    "property": "Person.id",
+    "type": "UNIQUE constraint",
+    "verified": false
+  },
+  "verification": {
+    "nodes": 169924,
+    "relationships": 100000,
+    "valid": true
+  }
+}

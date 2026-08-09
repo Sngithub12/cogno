@@ -1,0 +1,116 @@
+{
+  "platform": "FalkorDB Cloud",
+  "graph_name": "cogno_benchmark",
+  "config": {
+    "iterations_per_workload": 100,
+    "warmup_iterations": 10,
+    "concurrency_levels": [
+      1,
+      10,
+      40
+    ],
+    "mixed_workload_duration_seconds": 15,
+    "read_write_ratio": 0.8
+  },
+  "caveats": [
+    "Mixed workload writes insert synthetic Person nodes (id >= 10,000,000) and edges; re-run the loader to reset the dataset to its original 169,924/100,000 state before re-benchmarking."
+  ],
+  "traversals": {
+    "1_hop": {
+      "p50": 84.131,
+      "p95": 173.931,
+      "unit": "ms"
+    },
+    "2_hop": {
+      "p50": 118.053,
+      "p95": 205.962,
+      "unit": "ms"
+    },
+    "3_hop": {
+      "p50": 136.76,
+      "p95": 248.398,
+      "unit": "ms"
+    }
+  },
+  "lookups": {
+    "point_lookup": {
+      "p50": 104.939,
+      "p95": 217.859,
+      "unit": "ms",
+      "indexed_property": "Person.id"
+    },
+    "filtered_lookup": {
+      "p50": 102.263,
+      "p95": 198.745,
+      "unit": "ms"
+    }
+  },
+  "aggregations": {
+    "total_relationship_count": {
+      "p50": 126.994,
+      "p95": 229.612,
+      "unit": "ms"
+    }
+  },
+  "mixed_workload": {
+    "concurrency_1": {
+      "elapsed_seconds": 15.11,
+      "total_ops": 135,
+      "reads": 109,
+      "writes": 26,
+      "read_write_ratio_target": 0.8,
+      "throughput_ops_per_sec": 8.94
+    },
+    "concurrency_10": {
+      "elapsed_seconds": 15.14,
+      "total_ops": 1045,
+      "reads": 812,
+      "writes": 233,
+      "read_write_ratio_target": 0.8,
+      "throughput_ops_per_sec": 69.03
+    },
+    "concurrency_40": {
+      "elapsed_seconds": 15.13,
+      "total_ops": 2707,
+      "reads": 2155,
+      "writes": 552,
+      "read_write_ratio_target": 0.8,
+      "throughput_ops_per_sec": 178.86
+    }
+  },
+  "footprint": {
+    "advertised_specs": {
+      "vcpu": "burstable, not fixed (check FalkorDB Cloud free-tier docs)",
+      "ram_mb": "please confirm in FalkorDB Cloud console for your tier",
+      "disk_gb": "please confirm in FalkorDB Cloud console for your tier",
+      "note": "Fill in exact advertised specs from your FalkorDB Cloud dashboard to match README fairness table."
+    },
+    "memory_stats": "not observable via Cypher on this FalkorDB tier",
+    "graph_memory_usage": [
+      "total_graph_sz_mb",
+      32,
+      "label_matrices_sz_mb",
+      2,
+      "relation_matrices_sz_mb",
+      5,
+      "amortized_node_block_sz_mb",
+      1,
+      "amortized_node_attributes_by_label_sz_mb",
+      [
+        "Person",
+        2
+      ],
+      "amortized_unlabeled_nodes_attributes_sz_mb",
+      0,
+      "amortized_edge_block_sz_mb",
+      0,
+      "amortized_edge_attributes_by_type_sz_mb",
+      [
+        "CONNECTED_TO",
+        0
+      ],
+      "indices_sz_mb",
+      19
+    ]
+  }
+}

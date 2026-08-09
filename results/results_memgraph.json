@@ -1,0 +1,100 @@
+{
+  "platform": "Memgraph Cloud",
+  "graph_name": "cogno_benchmark",
+  "config": {
+    "nodes": 169924,
+    "relationships": 100000,
+    "iterations_per_workload": 100,
+    "warmup_iterations": 10,
+    "concurrency_levels": [
+      1,
+      10,
+      40
+    ],
+    "mixed_workload_duration_seconds": 15,
+    "read_write_ratio": 0.8
+  },
+  "caveats": [
+    "Mixed workload creates temporary BenchmarkNode records and deletes them in the same transaction.",
+    "Benchmark uses Neo4j Python driver with bolt+ssc TLS connection."
+  ],
+  "traversals": {
+    "1_hop": {
+      "p50": 461.282,
+      "p95": 964.815,
+      "unit": "ms"
+    },
+    "2_hop": {
+      "p50": 344.804,
+      "p95": 928.067,
+      "unit": "ms"
+    },
+    "3_hop": {
+      "p50": 359.542,
+      "p95": 586.606,
+      "unit": "ms"
+    }
+  },
+  "lookups": {
+    "point_lookup": {
+      "p50": 364.398,
+      "p95": 539.413,
+      "unit": "ms",
+      "indexed_property": "Person.id"
+    },
+    "filtered_lookup": {
+      "p50": 377.305,
+      "p95": 492.741,
+      "unit": "ms"
+    }
+  },
+  "aggregations": {
+    "total_relationship_count": {
+      "p50": 446.55,
+      "p95": 593.534,
+      "unit": "ms"
+    }
+  },
+  "mixed_workload": {
+    "concurrency_1": {
+      "elapsed_seconds": 15.16,
+      "total_ops": 10,
+      "reads": 10,
+      "writes": 0,
+      "read_write_ratio_target": 0.8,
+      "throughput_ops_per_sec": 0.66,
+      "p50_latency_ms": 377.516,
+      "p95_latency_ms": 9820.945
+    },
+    "concurrency_10": {
+      "elapsed_seconds": 15.85,
+      "total_ops": 258,
+      "reads": 210,
+      "writes": 48,
+      "read_write_ratio_target": 0.8,
+      "throughput_ops_per_sec": 16.28,
+      "p50_latency_ms": 406.908,
+      "p95_latency_ms": 1315.782
+    },
+    "concurrency_40": {
+      "elapsed_seconds": 16.22,
+      "total_ops": 1055,
+      "reads": 870,
+      "writes": 185,
+      "read_write_ratio_target": 0.8,
+      "throughput_ops_per_sec": 65.05,
+      "p50_latency_ms": 383.064,
+      "p95_latency_ms": 1252.323
+    }
+  },
+  "footprint": {
+    "dataset": {
+      "nodes": 169924,
+      "relationships": 100000
+    },
+    "notes": [
+      "Memgraph Cloud resource limits depend on the selected Cloud tier.",
+      "Check the Memgraph Cloud console for exact CPU and RAM allocation."
+    ]
+  }
+}

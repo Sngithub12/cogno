@@ -1,0 +1,95 @@
+{
+  "platform": "ArangoDB Cloud",
+  "config": {
+    "nodes": 169924,
+    "relationships": 100000,
+    "iterations_per_workload": 100,
+    "warmup_iterations": 10,
+    "concurrency_levels": [
+      1,
+      10,
+      40
+    ],
+    "mixed_workload_duration_seconds": 15,
+    "read_write_ratio": 0.8
+  },
+  "traversals": {
+    "1_hop": {
+      "p50": 417.36,
+      "p95": 556.016,
+      "unit": "ms"
+    },
+    "2_hop": {
+      "p50": 414.595,
+      "p95": 546.668,
+      "unit": "ms"
+    },
+    "3_hop": {
+      "p50": 411.96,
+      "p95": 539.215,
+      "unit": "ms"
+    }
+  },
+  "lookups": {
+    "point_lookup": {
+      "p50": 391.328,
+      "p95": 554.408,
+      "unit": "ms",
+      "indexed_property": "Person.id"
+    },
+    "filtered_lookup": {
+      "p50": 324.045,
+      "p95": 778.034,
+      "unit": "ms"
+    }
+  },
+  "aggregations": {
+    "total_relationship_count": {
+      "p50": 477.576,
+      "p95": 1060.728,
+      "unit": "ms"
+    }
+  },
+  "mixed_workload": {
+    "concurrency_1": {
+      "elapsed_seconds": 15.3,
+      "total_ops": 28,
+      "reads": 23,
+      "writes": 5,
+      "read_write_ratio_target": 0.8,
+      "throughput_ops_per_sec": 1.83,
+      "p50_latency_ms": 426.957,
+      "p95_latency_ms": 1261.356
+    },
+    "concurrency_10": {
+      "elapsed_seconds": 15.4,
+      "total_ops": 273,
+      "reads": 220,
+      "writes": 53,
+      "read_write_ratio_target": 0.8,
+      "throughput_ops_per_sec": 17.73,
+      "p50_latency_ms": 427.834,
+      "p95_latency_ms": 1259.493
+    },
+    "concurrency_40": {
+      "elapsed_seconds": 15.63,
+      "total_ops": 1154,
+      "reads": 950,
+      "writes": 204,
+      "read_write_ratio_target": 0.8,
+      "throughput_ops_per_sec": 73.82,
+      "p50_latency_ms": 417.337,
+      "p95_latency_ms": 969.128
+    }
+  },
+  "footprint": {
+    "dataset": {
+      "nodes": 169924,
+      "relationships": 100000
+    },
+    "notes": [
+      "ArangoDB Cloud resource limits depend on the selected Cloud deployment tier.",
+      "Check the ArangoDB Cloud console for exact CPU and RAM allocation."
+    ]
+  }
+}

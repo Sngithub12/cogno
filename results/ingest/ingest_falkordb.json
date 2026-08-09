@@ -1,0 +1,42 @@
+{
+  "platform": "FalkorDB Cloud",
+  "graph_name": "cogno_benchmark",
+  "dataset": {
+    "nodes": 169924,
+    "relationships": 100000
+  },
+  "ingest": {
+    "batch_size": 500,
+    "csv_read_time_seconds": 0.092,
+    "delete_time_seconds": 0.038,
+    "nodes": {
+      "count": 169924,
+      "time_seconds": 28.361,
+      "nodes_per_second": 5991.49
+    },
+    "relationships": {
+      "count": 100000,
+      "time_seconds": 80.465,
+      "relationships_per_second": 1242.78
+    },
+    "total_records": 269924,
+    "data_ingestion_time_seconds": 108.826,
+    "overall_ingest_records_per_second": 2480.33,
+    "total_wall_clock_time_seconds": 109.95
+  },
+  "index": {
+    "property": "Person.id",
+    "verified": true,
+    "operation_time_seconds": 0.061
+  },
+  "verification": {
+    "nodes": 169924,
+    "relationships": 100000,
+    "verification_time_seconds": 0.107
+  },
+  "method": {
+    "node_load_method": "Python FalkorDB driver with UNWIND batched CREATE",
+    "relationship_load_method": "Python FalkorDB driver with UNWIND batched MATCH + CREATE",
+    "batch_size": 500
+  }
+}

@@ -1,0 +1,16 @@
+﻿.env
+*.crt
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+.vscode/
+.idea/
+*.log
+.DS_Store
+.ipynb_checkpoints/
+
+# Raw Pokec dataset
+data/soc-pokec-relationships.txt
+data/soc-pokec-relationships.txt.gz

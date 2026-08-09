@@ -1,0 +1,55 @@
+{
+  "database": "Neo4j AuraDB",
+  "dataset": {
+    "nodes": 169924,
+    "relationships": 100000
+  },
+  "configuration": {
+    "clients": 10,
+    "operations_per_client": 50,
+    "read_percent": 0.8,
+    "write_percent": 0.2
+  },
+  "read_workloads": {
+    "1-hop": {
+      "p50_ms": 101.12,
+      "p95_ms": 119.68,
+      "mean_ms": 103.28
+    },
+    "2-hop": {
+      "p50_ms": 100.58,
+      "p95_ms": 124.27,
+      "mean_ms": 105.76
+    },
+    "3-hop": {
+      "p50_ms": 101.28,
+      "p95_ms": 119.08,
+      "mean_ms": 103.61
+    },
+    "point_lookup": {
+      "p50_ms": 100.89,
+      "p95_ms": 114.18,
+      "mean_ms": 109.39
+    },
+    "filtered_lookup": {
+      "p50_ms": 101.47,
+      "p95_ms": 116.5,
+      "mean_ms": 103.74
+    },
+    "aggregation": {
+      "p50_ms": 99.65,
+      "p95_ms": 115.03,
+      "mean_ms": 104.04
+    }
+  },
+  "mixed_workload": {
+    "total_operations": 500,
+    "reads": 403,
+    "writes": 97,
+    "elapsed_seconds": 5.4961,
+    "throughput_ops_per_sec": 90.9738,
+    "p50_ms": 89.54,
+    "p95_ms": 193.4,
+    "mean_ms": 106.8
+  }
+}

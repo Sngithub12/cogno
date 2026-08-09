@@ -1,0 +1,40 @@
+{
+  "platform": "CognoDB",
+  "dataset": {
+    "nodes": 169924,
+    "relationships": 100000
+  },
+  "loader": {
+    "method": "Python Neo4j-compatible driver with UNWIND batching",
+    "batch_size": 5000,
+    "nodes_file": "data/nodes.csv",
+    "relationships_file": "data/relationships.csv"
+  },
+  "timing": {
+    "cleanup_seconds": 6.673,
+    "node_load_seconds": 25.728,
+    "relationship_load_seconds": 24.888,
+    "verification_seconds": 0.669,
+    "data_ingestion_seconds": 50.617,
+    "total_wall_clock_seconds": 61.046
+  },
+  "throughput": {
+    "nodes_per_second": 6604.57,
+    "relationships_per_second": 4017.95,
+    "overall_records_per_second": 5332.72
+  },
+  "verification": {
+    "nodes": 169924,
+    "relationships": 100000,
+    "expected_nodes": 169924,
+    "expected_relationships": 100000,
+    "passed": true
+  },
+  "index": {
+    "name": "person_id_index",
+    "property": "Person.id",
+    "created_during_run": false,
+    "verified": true,
+    "operation_time_seconds": 0.963
+  }
+}

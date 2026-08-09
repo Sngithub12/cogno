@@ -1,0 +1,48 @@
+{
+  "platform": "ArangoDB Cloud",
+  "database": "_system",
+  "collections": {
+    "node_collection": "Person",
+    "edge_collection": "CONNECTED_TO"
+  },
+  "dataset": {
+    "nodes": 169924,
+    "relationships": 100000
+  },
+  "batch_size": 5000,
+  "load_method": "Python driver with ArangoDB import_bulk batching",
+  "csv": {
+    "nodes_file": "data/nodes.csv",
+    "relationships_file": "data/relationships.csv",
+    "read_time_seconds": 0.075
+  },
+  "cleanup": {
+    "delete_time_seconds": 0.586
+  },
+  "nodes": {
+    "load_time_seconds": 36.131,
+    "throughput_nodes_per_sec": 4703.03
+  },
+  "relationships": {
+    "load_time_seconds": 20.481,
+    "throughput_relationships_per_sec": 4882.67
+  },
+  "verification": {
+    "node_verification_time_seconds": 0.323,
+    "final_verification_time_seconds": 0.744
+  },
+  "index": {
+    "property": "Person.id",
+    "type": "persistent",
+    "unique": true,
+    "created": false,
+    "verified": true,
+    "operation_time_seconds": 0.711
+  },
+  "ingestion": {
+    "total_records": 269924,
+    "data_ingestion_time_seconds": 56.611,
+    "overall_ingest_rate_records_per_sec": 4768.02,
+    "total_wall_clock_time_seconds": 61.087
+  }
+}

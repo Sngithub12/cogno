@@ -1,0 +1,39 @@
+{
+  "platform": "Memgraph Cloud",
+  "dataset": {
+    "nodes": 169924,
+    "relationships": 100000
+  },
+  "configuration": {
+    "batch_size": 5000,
+    "encrypted": true,
+    "loader": "Python gqlalchemy driver batching"
+  },
+  "ingest": {
+    "csv_read_time_seconds": 0.095,
+    "delete_time_seconds": 1.861,
+    "node_load_time_seconds": 58.331,
+    "relationship_load_time_seconds": 28.521,
+    "data_ingestion_time_seconds": 86.851,
+    "total_wall_clock_seconds": 100.665,
+    "nodes_per_second": 2913.11,
+    "relationships_per_second": 3506.25,
+    "overall_records_per_second": 3107.89
+  },
+  "index": {
+    "property": "Person.id",
+    "verified": true,
+    "operation_time_seconds": 1.57
+  },
+  "verification": {
+    "nodes": 169924,
+    "relationships": 100000,
+    "verification_time_seconds": 2.624
+  },
+  "method": {
+    "node_batch_size": 5000,
+    "relationship_batch_size": 5000,
+    "node_method": "UNWIND parameter batches",
+    "relationship_method": "UNWIND parameter batches with MATCH and CREATE"
+  }
+}
